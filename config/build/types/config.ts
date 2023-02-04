@@ -3,7 +3,8 @@ export type TBuildMode = 'production' | 'development';
 export type TBuildPath = {
     entry: string,
     output: string,
-    html: string
+    html: string,
+    src: string
 }
 
 export interface IBuildOptions {
