@@ -1,7 +1,7 @@
 import React from 'react';
 import { classNames } from 'shared';
 import { useTheme, AppRouter } from './providers';
-import { Navbar } from 'widgets';
+import { Navbar, Sidebar } from 'widgets';
 import './styles/index.scss';
 
 const App = () => {
@@ -11,7 +11,10 @@ const App = () => {
     return (
         <div className={classNames('app', {}, [theme])}>
             <Navbar />
-            <AppRouter />
+            <div className="content-page">
+                <Sidebar />
+                <AppRouter />
+            </div>
         </div>
     )
 }
