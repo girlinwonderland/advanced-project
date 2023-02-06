@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { AppLink, classNames } from 'shared';
+import { useTranslation } from 'react-i18next';
 import styles from './navbar.module.scss';
 
 interface NavBarProps {
@@ -7,11 +8,12 @@ interface NavBarProps {
 }
 
 export const Navbar: FC<NavBarProps> = ({ className }) => {
+    const { t } = useTranslation();
     return (
         <div className={classNames(styles.navbar, {}, [className])}>
             <div className={styles.links}>
-                <AppLink to='/' className={styles.mainLink}>Главная</AppLink>
-                <AppLink to='/about'>О сайте</AppLink>
+                <AppLink to='/' className={styles.mainLink}>{t('mainLink')}</AppLink>
+                <AppLink to='/about'>{t('aboutLink')}</AppLink>
             </div>
         </div>
     )

@@ -14,7 +14,7 @@ export const buildWebpackConfig = ({ mode, path, port, isDev, }: IBuildOptions):
             rules: buildLoaders(isDev),
         },
         resolve: buildResolve(path.src),
-        plugins: buildPlugin(path.html),
+        plugins: buildPlugin(path.html, isDev),
         output: {
             filename: "[name].[contenthash].js",
             path: path.output,
