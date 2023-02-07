@@ -12,6 +12,7 @@ export const buildPlugin = (path: string, isDev: boolean): webpack.WebpackPlugin
         }),
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev)
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin()
     ]
 }
