@@ -14,8 +14,9 @@ export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
         <Button
             onClick={toggle}
             theme={EButtonTheme.Clear}
-            className={classNames(styles.LangSwitcher, {}, [className])}>
+            className={classNames(styles.LangSwitcher, {}, [className])}
+        >
             {t('translate')}
         </Button>
-    )
-}
+    );
+};

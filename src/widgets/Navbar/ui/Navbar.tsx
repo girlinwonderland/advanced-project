@@ -12,9 +12,9 @@ export const Navbar: FC<NavBarProps> = ({ className }) => {
     return (
         <div className={classNames(styles.navbar, {}, [className])}>
             <div className={styles.links}>
-                <AppLink to='/' className={styles.mainLink}>{t('mainLink')}</AppLink>
-                <AppLink to='/about'>{t('aboutLink')}</AppLink>
+                <AppLink to="/" className={styles.mainLink}>{t('mainLink')}</AppLink>
+                <AppLink to="/about">{t('aboutLink')}</AppLink>
             </div>
         </div>
-    )
-}
+    );
+};

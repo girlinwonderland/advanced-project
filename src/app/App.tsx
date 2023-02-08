@@ -1,16 +1,15 @@
 import React, { Suspense } from 'react';
 import { classNames } from 'shared';
-import { useTheme, AppRouter } from './providers';
 import { Navbar, Sidebar } from 'widgets';
+import { useTheme, AppRouter } from './providers';
 import './styles/index.scss';
 
 const App = () => {
-
     const { theme } = useTheme();
 
     return (
         <div className={classNames('app', {}, [theme])}>
-            <Suspense fallback=''>
+            <Suspense fallback="">
                 <Navbar />
                 <div className="content-page">
                     <Sidebar />
@@ -18,6 +17,6 @@ const App = () => {
                 </div>
             </Suspense>
         </div>
-    )
-}
-export default App
+    );
+};
+export default App;

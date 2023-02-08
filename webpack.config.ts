@@ -8,8 +8,8 @@ export default (env: IBuildEnv) => {
         entry: path.resolve(__dirname, 'src', 'index.tsx'),
         output: path.resolve(__dirname, 'build'),
         html: path.resolve(__dirname, 'public', 'index.html'),
-        src: path.resolve(__dirname, 'src')
-    }
+        src: path.resolve(__dirname, 'src'),
+    };
 
     const mode: TBuildMode = env.mode || 'development';
     const isDev: boolean = mode === 'development';
@@ -19,7 +19,7 @@ export default (env: IBuildEnv) => {
         mode,
         path: PATH,
         isDev,
-        port: env.port || PORT
+        port: env.port || PORT,
     });
     return config;
 };

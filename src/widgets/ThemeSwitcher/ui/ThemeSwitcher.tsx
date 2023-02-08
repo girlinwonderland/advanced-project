@@ -11,8 +11,12 @@ interface ThemeSwitcherProps {
 export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
     const { theme, toggleTheme } = useTheme();
     return (
-        <Button theme={EButtonTheme.Clear} onClick={toggleTheme} className={classNames(styles.ThemeSwitcher, {}, [className])}>
+        <Button
+            theme={EButtonTheme.Clear}
+            onClick={toggleTheme}
+            className={classNames(styles.ThemeSwitcher, {}, [className])}
+        >
             <SwitchIcon fill={theme === ETheme.Light ? '#FFC700' : '#0115C6'} />
         </Button>
-    )
-}
+    );
+};

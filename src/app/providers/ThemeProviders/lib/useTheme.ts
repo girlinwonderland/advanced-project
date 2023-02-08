@@ -7,11 +7,11 @@ export const useTheme = () => {
     const toggleTheme = useCallback(() => {
         const newTheme: ETheme = theme === ETheme.Light ? ETheme.Dark : ETheme.Light;
         setTheme(newTheme);
-        localStorage.setItem(LOCAL_STORAGE_THEME_KEY,  newTheme)
+        localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
     }, [theme]);
 
     return {
         theme,
-        toggleTheme
-    }
-}
+        toggleTheme,
+    };
+};

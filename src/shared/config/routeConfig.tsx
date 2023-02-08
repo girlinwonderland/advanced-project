@@ -1,7 +1,6 @@
 import { RouteProps } from 'react-router-dom';
 import { AboutPage, MainPage } from 'pages';
 
-
 export enum EAppRoutes {
     Main = 'main',
     About = 'about'
@@ -9,16 +8,16 @@ export enum EAppRoutes {
 
 export const RoutPath: Record<EAppRoutes, string> = {
     [EAppRoutes.Main]: '/',
-    [EAppRoutes.About]: '/about'
-}
+    [EAppRoutes.About]: '/about',
+};
 
 export const routeConfig: Record<EAppRoutes, RouteProps> = {
     [EAppRoutes.Main]: {
         path: RoutPath.main,
-        element: <MainPage />
+        element: <MainPage />,
     },
     [EAppRoutes.About]: {
         path: RoutPath.about,
-        element: <AboutPage />
-    }
-}
+        element: <AboutPage />,
+    },
+};
