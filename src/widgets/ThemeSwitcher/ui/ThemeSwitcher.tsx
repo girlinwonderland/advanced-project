@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { classNames, Button, EButtonTheme } from 'shared';
 import { useTheme, ETheme } from 'app/providers';
 import SwitchIcon from '../../assets/icons/theme-switcher.svg';
-import styles from './ThemeSwitcher.module.scss';
+// import styles from './ThemeSwitcher.module.scss';
 
 interface ThemeSwitcherProps {
     className?: string
@@ -14,7 +14,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
         <Button
             theme={EButtonTheme.Clear}
             onClick={toggleTheme}
-            className={classNames(styles.ThemeSwitcher, {}, [className])}
+            className={classNames('', {}, [className])}
         >
             <SwitchIcon fill={theme === ETheme.Light ? '#FFC700' : '#0115C6'} />
         </Button>
