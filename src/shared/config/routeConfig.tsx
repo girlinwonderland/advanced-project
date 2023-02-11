@@ -1,14 +1,16 @@
 import { RouteProps } from 'react-router-dom';
-import { AboutPage, MainPage } from 'pages';
+import { AboutPage, MainPage, NotFound } from 'pages';
 
 export enum EAppRoutes {
     Main = 'main',
-    About = 'about'
+    About = 'about',
+    NotFound = 'notFound'
 }
 
 export const RoutPath: Record<EAppRoutes, string> = {
     [EAppRoutes.Main]: '/',
     [EAppRoutes.About]: '/about',
+    [EAppRoutes.NotFound]: '*',
 };
 
 export const routeConfig: Record<EAppRoutes, RouteProps> = {
@@ -19,5 +21,9 @@ export const routeConfig: Record<EAppRoutes, RouteProps> = {
     [EAppRoutes.About]: {
         path: RoutPath.about,
         element: <AboutPage />,
+    },
+    [EAppRoutes.NotFound]: {
+        path: RoutPath.notFound,
+        element: <NotFound />,
     },
 };
