@@ -3,5 +3,8 @@
   "aboutLink": "About",
   "mainLink": "Main",
   "expandSidebar": "Toggle",
-  "not found": "Not Found Page"
+  "not found": "Not Found Page",
+  "error": "Oooops... Error:(",
+  "update error": "update page",
+  "throw error": "throw error"
 }

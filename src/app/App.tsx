@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { classNames } from 'shared';
 import { Navbar, Sidebar } from 'widgets';
-import { useTheme, AppRouter } from './providers';
+import { useTheme, AppRouter, ErrorBoundary } from './providers';
 import './styles/index.scss';
 
 const App = () => {
@@ -9,13 +9,15 @@ const App = () => {
 
     return (
         <div className={classNames('app', {}, [theme])}>
-            <Suspense fallback="">
-                <Navbar />
-                <div className="content-page">
-                    <Sidebar />
-                    <AppRouter />
-                </div>
-            </Suspense>
+            <ErrorBoundary>
+                <Suspense fallback="">
+                    <Navbar />
+                    <div className="content-page">
+                        <Sidebar />
+                        <AppRouter />
+                    </div>
+                </Suspense>
+            </ErrorBoundary>
         </div>
     );
 };

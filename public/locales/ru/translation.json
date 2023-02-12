@@ -3,5 +3,8 @@
   "aboutLink": "О нас",
   "mainLink": "Главная",
   "expandSidebar": "Тоггл",
-  "not found": "Страница не найдена"
+  "not found": "Страница не найдена",
+  "error": "Произошла ошибка:(",
+  "update error": "Обновить страницу",
+  "throw error": "Показать ошибку"
 }
