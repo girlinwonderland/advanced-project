@@ -3,7 +3,8 @@ import { classNames } from 'shared';
 import styles from './Button.module.scss';
 
 export enum EButtonTheme {
-    Clear = 'clear'
+    Clear = 'clear',
+    OutLine = 'outline'
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
