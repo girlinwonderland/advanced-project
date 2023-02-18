@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { classNames, Button, EButtonTheme } from 'shared';
 import { useTheme, ETheme } from 'app/providers';
-import SwitchIcon from '../../assets/icons/theme-switcher.svg';
+import SwitchIcon from '../../../shared/assets/icons/theme-switcher.svg';
 // import styles from './ThemeSwitcher.module.scss';
 
 interface ThemeSwitcherProps {

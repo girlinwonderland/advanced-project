@@ -4,10 +4,11 @@ import { Button, classNames, EButtonTheme } from 'shared';
 import styles from './LangSwitcher.module.scss';
 
 interface LangSwitcherProps {
-    className?: string
+    className?: string,
+    short?: boolean
 }
 
-export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
+export const LangSwitcher: FC<LangSwitcherProps> = ({ className, short }) => {
     const { t, i18n } = useTranslation();
     const toggle = async () => i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
     return (
@@ -16,7 +17,7 @@ export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
             theme={EButtonTheme.Clear}
             className={classNames(styles.LangSwitcher, {}, [className])}
         >
-            {t('translate')}
+            {t(short ? 'shortTranslate' : 'translate')}
         </Button>
     );
 };

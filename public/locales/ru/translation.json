@@ -1,5 +1,6 @@
 {
-  "translate": "en",
+  "translate": "english",
+  "shortTranslate": "en",
   "aboutLink": "О нас",
   "mainLink": "Главная",
   "expandSidebar": "Тоггл",
