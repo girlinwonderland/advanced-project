@@ -5,8 +5,12 @@ import {
 
 const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as ETheme || ETheme.Light;
 
-export const ThemeProvider: React.FC = ({ children }) => {
-    const [theme, setTheme] = useState<ETheme>(defaultTheme);
+interface IThemeProvider {
+    initialTheme?: ETheme
+}
+
+export const ThemeProvider: React.FC<IThemeProvider> = ({ children, initialTheme }) => {
+    const [theme, setTheme] = useState<ETheme>(initialTheme || defaultTheme);
 
     const contextValue: IContext = useMemo(() => ({ theme, setTheme }), [theme, setTheme]);
 
