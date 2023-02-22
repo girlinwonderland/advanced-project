@@ -1,6 +1,7 @@
 import {
     FC, useCallback, useEffect, useMemo, useRef, useState,
 } from 'react';
+import { useTheme } from 'app/providers';
 import { classNames } from '../../lib/classNames';
 import { Portal } from '../Portal/Portal';
 import styles from './Modal.module.scss';
@@ -19,6 +20,7 @@ export const Modal: FC<ModalProps> = ({
 }) => {
     const [isClosing, setIsClosing] = useState(false);
     const timeRef = useRef<ReturnType<typeof setInterval>>();
+    const { theme } = useTheme();
 
     const onCloseWrapper = useCallback(() => {
         setIsClosing(true);
@@ -51,7 +53,7 @@ export const Modal: FC<ModalProps> = ({
 
     return (
         <Portal>
-            <div className={classNames(styles.Modal, mods, [className])}>
+            <div className={classNames(styles.Modal, mods, [className, theme, 'app_modal'])}>
                 <div className={styles.overlay} onClick={onCloseWrapper}>
                     <div className={styles.content} onClick={(e) => e.stopPropagation()}>
                         { children }

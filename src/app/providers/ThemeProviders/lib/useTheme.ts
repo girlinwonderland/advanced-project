@@ -8,7 +8,7 @@ export const useTheme = () => {
         const newTheme: ETheme = theme === ETheme.Light ? ETheme.Dark : ETheme.Light;
         setTheme(newTheme);
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
-    }, [theme]);
+    }, [theme, setTheme]);
 
     return {
         theme,
