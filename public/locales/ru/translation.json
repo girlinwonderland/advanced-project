@@ -8,5 +8,8 @@
   "error": "Произошла ошибка:(",
   "update error": "Обновить страницу",
   "throw error": "Показать ошибку",
-  "enter": "войти"
+  "enter": "войти",
+  "usernamePlaceholder": "введите логин",
+  "passwordPlaceholder": "введите пароль",
+  "logIn": "Войти"
 }

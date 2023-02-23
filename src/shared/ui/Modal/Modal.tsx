@@ -9,7 +9,8 @@ import styles from './Modal.module.scss';
 interface ModalProps {
     className?: string,
     isOpen?: boolean,
-    onClose: () => void
+    onClose: () => void,
+    lazy?: boolean;
 }
 
 export const Modal: FC<ModalProps> = ({
@@ -17,10 +18,19 @@ export const Modal: FC<ModalProps> = ({
     children,
     isOpen,
     onClose,
+    lazy,
 }) => {
     const [isClosing, setIsClosing] = useState(false);
     const timeRef = useRef<ReturnType<typeof setInterval>>();
     const { theme } = useTheme();
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+        }
+        return () => setIsMounted(false);
+    }, [isOpen]);
 
     const onCloseWrapper = useCallback(() => {
         setIsClosing(true);
@@ -52,14 +62,16 @@ export const Modal: FC<ModalProps> = ({
     }, [isOpen, oKeyDown]);
 
     return (
-        <Portal>
-            <div className={classNames(styles.Modal, mods, [className, theme, 'app_modal'])}>
-                <div className={styles.overlay} onClick={onCloseWrapper}>
-                    <div className={styles.content} onClick={(e) => e.stopPropagation()}>
-                        { children }
+        (lazy && !isMounted) ? null : (
+            <Portal>
+                <div className={classNames(styles.Modal, mods, [className, theme, 'app_modal'])}>
+                    <div className={styles.overlay} onClick={onCloseWrapper}>
+                        <div className={styles.content} onClick={(e) => e.stopPropagation()}>
+                            { children }
+                        </div>
                     </div>
                 </div>
-            </div>
-        </Portal>
+            </Portal>
+        )
     );
 };

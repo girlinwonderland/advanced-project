@@ -8,5 +8,8 @@
   "error": "Oooops... Error:(",
   "update error": "update page",
   "throw error": "throw error",
-  "enter": "sign in"
+  "enter": "sign in",
+  "usernamePlaceholder": "enter username",
+  "passwordPlaceholder": "enter password",
+  "logIn": "Log in"
 }

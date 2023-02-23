@@ -1,7 +1,6 @@
-import React, { FC, useState } from 'react';
-import {
-    Button, classNames, EButtonTheme, Modal,
-} from 'shared';
+import React, { FC, useCallback, useState } from 'react';
+import { Button, classNames, EButtonTheme } from 'shared';
+import { LoginModal } from 'features/AuthByUsername';
 import { useTranslation } from 'react-i18next';
 import styles from './Navbar.module.scss';
 
@@ -14,21 +13,20 @@ export const Navbar: FC<NavBarProps> = ({ className }) => {
 
     const [isAuthModal, setIsAuthModal] = useState(false);
 
+    const onOpen = useCallback(() => setIsAuthModal(true), []);
+
+    const onClose = useCallback(() => setIsAuthModal(false), []);
+
     return (
         <div className={classNames(styles.navbar, {}, [className])}>
             <Button
-                onClick={() => setIsAuthModal(true)}
+                onClick={onOpen}
                 theme={EButtonTheme.ClearInverted}
                 className={styles.links}
             >
                 {t('enter')}
             </Button>
-            {/* eslint-disable-next-line i18next/no-literal-string */}
-            <Modal isOpen={isAuthModal} onClose={() => setIsAuthModal(false)}>
-                loren vdshv svbdsjhshfdshgfyydy fgghdgfhghdgfhdgfdgh
-                bfbhdgfhdgfhd dfjhfjdhfjdhfjdhfjd dfdjhfjdjfndjf fhdfjdh
-                jdfhjfhjdhfdf dfjdjfkdjf dfkjdfjdf hdufhdjhfjdfhdfh
-            </Modal>
+            <LoginModal isOpen={isAuthModal} onClose={onClose} />
         </div>
     );
 };

@@ -1,0 +1,13 @@
+.InputWrapper {
+    display: flex;
+}
+
+.placeholder {
+    margin-right: 5px;
+}
+
+.input {
+    outline: none;
+    width: 100%;
+    color: var(--primary-color);
+}
