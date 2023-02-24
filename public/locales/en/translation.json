@@ -11,5 +11,9 @@
   "enter": "sign in",
   "usernamePlaceholder": "enter username",
   "passwordPlaceholder": "enter password",
-  "logIn": "Log in"
+  "logIn": "Log in",
+  "logout": "Log out",
+  "loginForm": "Login form",
+  "login error incorrect": "wrong login or password",
+  "login error server": "server is not response( Please try again later"
 }

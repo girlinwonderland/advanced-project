@@ -11,5 +11,9 @@
   "enter": "войти",
   "usernamePlaceholder": "введите логин",
   "passwordPlaceholder": "введите пароль",
-  "logIn": "Войти"
+  "logIn": "Войти",
+  "logout": "Выйти",
+  "loginForm": "Форма авторизации",
+  "login error incorrect": "Неверный логин или пароль",
+  "login error server": "Сервер не отвечает( Пожалуйста, попробуйте позже"
 }
