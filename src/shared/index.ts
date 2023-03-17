@@ -7,3 +7,4 @@ export { Modal } from './ui/Modal/Modal';
 export { Input } from './ui/Input/Input';
 export { Text, ETextType } from './ui/Text/Text';
 export * from './const';
+export * from './api/api';

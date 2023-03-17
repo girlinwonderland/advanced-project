@@ -11,10 +11,12 @@ export interface IBuildOptions {
     mode: TBuildMode,
     path: TBuildPath,
     isDev: boolean,
-    port: number
+    port: number,
+    apiUrl: string;
 }
 
 export interface IBuildEnv {
     mode: TBuildMode,
-    port: number
+    port: number,
+    apiUrl: string;
 }
