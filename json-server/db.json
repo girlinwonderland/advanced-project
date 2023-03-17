@@ -31,6 +31,13 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "first": "Lisa",
+    "lastname": "Kossova",
+    "age": 24,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Moscow",
+    "username": "admin",
+    "avatar": "https://static.tildacdn.com/tild6264-3031-4334-a665-323431623235/photo.png"
   }
 }

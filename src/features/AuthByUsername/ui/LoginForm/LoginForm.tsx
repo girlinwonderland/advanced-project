@@ -1,10 +1,10 @@
 import { memo, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import {
     Button, classNames, ETextType, Input, Text,
 } from 'shared';
-import { DynamicModuleLoader, ReducerList } from 'shared/lib';
+import { DynamicModuleLoader, ReducerList, useAppDispatch } from 'shared/lib';
 import {
     getLoginUsername, getLoginIsLoading, getLoginPassword, getLoginError,
 } from '../../model/selectors';
@@ -22,7 +22,7 @@ const initialReducer: ReducerList = {
 
 export const LoginForm = memo(({ className }: LoginFormProps) => {
     const { t } = useTranslation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const onChangeName = useCallback((e: string) => dispatch(LoginActions.setUsername(e)), [dispatch]);
 

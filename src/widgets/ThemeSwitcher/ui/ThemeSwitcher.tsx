@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { memo } from 'react';
 import { classNames, Button, EButtonTheme } from 'shared';
 import { useTheme, ETheme } from 'app/providers';
 import SwitchIcon from '../../../shared/assets/icons/theme-switcher.svg';
@@ -8,7 +8,7 @@ interface ThemeSwitcherProps {
     className?: string
 }
 
-export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
+export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
     const { theme, toggleTheme } = useTheme();
     return (
         <Button
@@ -19,4 +19,4 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
             <SwitchIcon fill={theme === ETheme.Light ? '#FFC700' : '#0115C6'} />
         </Button>
     );
-};
+});

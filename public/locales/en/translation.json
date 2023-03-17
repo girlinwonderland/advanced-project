@@ -15,5 +15,7 @@
   "logout": "Log out",
   "loginForm": "Login form",
   "login error incorrect": "wrong login or password",
-  "login error server": "server is not response( Please try again later"
+  "login error server": "server is not response( Please try again later",
+  "profile": "Profile",
+  "profile page": "Profile page"
 }
