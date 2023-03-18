@@ -8,6 +8,11 @@ import { UserSchema } from 'entities/User/model/types/userSchema';
 import { ProfileSchema } from 'entities/Profile';
 import { LoginSchema } from 'features/AuthByUsername';
 
+export enum EErrors {
+    IncorrectData = 'login error incorrect',
+    SererError = 'login error server',
+}
+
 export interface StateSchema {
     counter: CounterSchema,
     user: UserSchema,

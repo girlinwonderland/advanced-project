@@ -34,6 +34,7 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
     const isLoading = useSelector(getLoginIsLoading);
 
     const onLogin = useCallback(() => {
+        // @ts-ignore
         dispatch(loginByUsername({ username, password }));
     }, [dispatch, username, password]);
 

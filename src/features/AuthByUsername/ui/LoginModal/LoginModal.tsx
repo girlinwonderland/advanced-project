@@ -10,7 +10,7 @@ interface LoginModalProps {
 }
 
 export const LoginModal: FC<LoginModalProps> = ({
-    className,
+    className = '',
     onClose,
     isOpen,
 }) => (

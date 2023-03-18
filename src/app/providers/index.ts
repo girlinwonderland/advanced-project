@@ -3,4 +3,4 @@ export { ThemeContext, ETheme } from './ThemeProviders/lib/ThemeContext';
 export { useTheme } from './ThemeProviders/lib/useTheme';
 export { AppRouter } from './router';
 export { ErrorBoundary } from './ErrorBoundary';
-export { StoreProvider, StateSchema } from './StoreProvider';
+export { StoreProvider, StateSchema, EErrors } from './StoreProvider';

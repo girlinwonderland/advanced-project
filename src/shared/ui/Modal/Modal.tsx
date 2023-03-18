@@ -2,7 +2,7 @@ import {
     FC, useCallback, useEffect, useMemo, useRef, useState,
 } from 'react';
 import { useTheme } from 'app/providers';
-import { classNames } from '../../lib/classNames';
+import { classNames, TMode } from '../../lib/classNames';
 import { Portal } from '../Portal/Portal';
 import styles from './Modal.module.scss';
 
@@ -40,7 +40,7 @@ export const Modal: FC<ModalProps> = ({
         }, 300);
     }, [onClose]);
 
-    const mods: Record<string, boolean> = useMemo(() => ({
+    const mods: TMode = useMemo(() => ({
         [styles.opened]: isOpen,
         [styles.isClosing]: isClosing,
     }), [isOpen, isClosing]);

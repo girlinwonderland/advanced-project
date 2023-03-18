@@ -12,7 +12,7 @@ export default {
     },
 } as ComponentMeta<typeof About>;
 
-const Template: ComponentStory<typeof About> = (args) => <About />;
+const Template: ComponentStory<typeof About> = () => <About />;
 
 export const Dark = Template.bind({});
 
