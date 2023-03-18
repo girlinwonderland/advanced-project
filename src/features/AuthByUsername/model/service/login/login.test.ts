@@ -1,7 +1,7 @@
 import { Dispatch } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers';
 import { UserActions } from 'entities/User';
-import { TestAsyncFunc } from 'shared/lib';
+import { TestAsyncFunc } from 'shared/lib/test/testAsyncThunk';
 import loginByUsername from './login';
 
 describe('login fn test', () => {

@@ -1,5 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducerList, useAppDispatch } from 'shared/lib';
+import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useDispatch';
 import { ProfileReducer, fetchProfileData, ProfileCard } from 'entities/Profile';
 import { memo, useEffect } from 'react';
 
