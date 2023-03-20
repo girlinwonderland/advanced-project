@@ -4,7 +4,8 @@ import { useTranslation } from 'react-i18next';
 import {
     Button, classNames, ETextType, Input, Text,
 } from 'shared';
-import { DynamicModuleLoader, ReducerList, useAppDispatch } from 'shared/lib';
+import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useDispatch';
 import {
     getLoginUsername, getLoginIsLoading, getLoginPassword, getLoginError,
 } from '../../model/selectors';
@@ -34,7 +35,6 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
     const isLoading = useSelector(getLoginIsLoading);
 
     const onLogin = useCallback(() => {
-        // @ts-ignore
         dispatch(loginByUsername({ username, password }));
     }, [dispatch, username, password]);
 

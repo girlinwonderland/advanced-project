@@ -2,5 +2,16 @@
   "profile": "Profile",
   "edit": "Edit",
   "last name": "Last name",
-  "first name": "First name"
+  "first name": "First name",
+  "age": "age",
+  "city": "city",
+  "username": "username",
+  "avatar": "avatar",
+  "cancel": "cancel",
+  "save": "save",
+  "server save error": "server save error",
+  "incorrect region": "incorrect region",
+  "empty data": "empty data",
+  "empty name or lastname": "empty name or lastname",
+  "incorrect age": "incorrect age"
 }

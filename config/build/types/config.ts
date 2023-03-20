@@ -13,10 +13,12 @@ export interface IBuildOptions {
     isDev: boolean,
     port: number,
     apiUrl: string;
+    project: 'storybook' | 'frontend' | 'jest'
 }
 
 export interface IBuildEnv {
     mode: TBuildMode,
     port: number,
     apiUrl: string;
+    project: 'storybook' | 'frontend' | 'jest'
 }

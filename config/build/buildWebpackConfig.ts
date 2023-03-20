@@ -6,7 +6,7 @@ import { buildDevServer } from './buildDevServer';
 import { IBuildOptions } from './types';
 
 export const buildWebpackConfig = ({
-    mode, path, port, isDev, apiUrl,
+    mode, path, port, isDev, apiUrl, project,
 }: IBuildOptions): webpack.Configuration => ({
     mode,
     entry: path.entry,
@@ -14,7 +14,7 @@ export const buildWebpackConfig = ({
         rules: buildLoaders(isDev),
     },
     resolve: buildResolve(path.src),
-    plugins: buildPlugin(path.html, isDev, apiUrl),
+    plugins: buildPlugin(path.html, isDev, apiUrl, project),
     output: {
         filename: '[name].[contenthash].js',
         path: path.output,

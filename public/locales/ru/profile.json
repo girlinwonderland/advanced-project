@@ -2,5 +2,16 @@
   "profile": "Профиль",
   "edit": "Редактировать",
   "last name": "Ваша фамилия",
-  "first name": "Ваше имя"
+  "first name": "Ваше имя",
+  "age": "Ваш возраст",
+  "city": "Ваш город",
+  "username": "Ваше имя",
+  "avatar": "Ваш аватар",
+  "cancel": "отменить",
+  "save": "сохранить",
+  "server save error": "Серверная ошибка при сохранении",
+  "incorrect region": "Некорректный регион",
+  "empty data": "Данные не указаны",
+  "empty name or lastname": "Имя и фамилия обязательны",
+  "incorrect age": "Некорректный возраст"
 }

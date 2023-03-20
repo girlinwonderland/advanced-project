@@ -17,5 +17,7 @@
   "login error incorrect": "wrong login or password",
   "login error server": "server is not response( Please try again later",
   "profile": "Profile",
-  "profile page": "Profile page"
+  "profile page": "Profile page",
+  "select currency": "select currency",
+  "select country": "select country"
 }

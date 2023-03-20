@@ -2,12 +2,13 @@ import React, { InputHTMLAttributes, memo, useCallback } from 'react';
 import { classNames } from '../../lib/classNames/classNames';
 import styles from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
 
 interface InputProps extends HTMLInputProps {
     className?: string;
-    value?: string;
+    value?: string | number;
     onChange?: (value: string) => void;
+    readonly?: boolean;
 }
 
 export const Input = memo(({
@@ -16,6 +17,7 @@ export const Input = memo(({
     onChange,
     type = 'text',
     placeholder,
+    readonly,
     ...otherProps
 }: InputProps) => {
     const onChangeHandler = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,7 +25,7 @@ export const Input = memo(({
     }, [onChange]);
 
     return (
-        <div className={classNames(styles.InputWrapper, {}, [className])}>
+        <div className={classNames(styles.InputWrapper, { [styles.readonly]: readonly }, [className])}>
             {placeholder && (
                 <div className={styles.placeholder}>
                     {placeholder}
@@ -34,6 +36,7 @@ export const Input = memo(({
                 value={value}
                 onChange={onChangeHandler}
                 className={styles.input}
+                readOnly={readonly}
                 {...otherProps}
             />
         </div>

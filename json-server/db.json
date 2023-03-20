@@ -31,13 +31,13 @@
     }
   ],
   "profile": {
-    "first": "Lisa",
+    "first": "lisa",
     "lastname": "Kossova",
     "age": 24,
-    "currency": "RUB",
+    "currency": "Usd",
     "country": "Russia",
     "city": "Moscow",
     "username": "admin",
-    "avatar": ""
+    "avatar": "https://yt3.ggpht.com/ytc/AAUvwngFzM_Rf6MNwOnFcuphoj93k7VFjlIrj-kSMxbh=s900-c-k-c0x00ffffff-no-rj"
   }
 }
