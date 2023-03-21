@@ -1,6 +1,5 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import avatar from 'shared/assets/test/storybook.jpg';
 import { ProfileCard } from './ProfileCard';
 import { Country } from '../../../Country';
 import { Currency } from '../../../Currency';
@@ -25,7 +24,7 @@ Primary.args = {
         first: 'asd',
         city: 'asf',
         currency: Currency.EUR,
-        avatar,
+        avatar: 'static/media/src/shared/assets/test/storybook.jpg',
     },
 };
 
