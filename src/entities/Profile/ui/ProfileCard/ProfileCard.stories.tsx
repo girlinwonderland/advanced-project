@@ -24,7 +24,6 @@ Primary.args = {
         first: 'asd',
         city: 'asf',
         currency: Currency.EUR,
-        avatar: 'static/media/src/shared/assets/test/storybook.jpg',
     },
 };
 
