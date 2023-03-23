@@ -7,6 +7,7 @@ import { CounterSchema } from 'entities/Counter/model/types/counterSchema';
 import { UserSchema } from 'entities/User/model/types/userSchema';
 import { ProfileSchema } from 'entities/Profile';
 import { LoginSchema } from 'features/AuthByUsername';
+import { ArticleDetailsSchema } from 'entities/Article';
 
 export enum EErrors {
     IncorrectData = 'login error incorrect',
@@ -18,6 +19,7 @@ export interface StateSchema {
     user: UserSchema,
     login?: LoginSchema,
     profile?: ProfileSchema,
+    articleDetails?: ArticleDetailsSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;

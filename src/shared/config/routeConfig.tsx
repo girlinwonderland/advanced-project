@@ -1,6 +1,6 @@
 import { RouteProps } from 'react-router-dom';
 import {
-    AboutPage, MainPage, NotFound, ProfilePage,
+    AboutPage, MainPage, NotFound, ProfilePage, ArticlesPage, ArticleDetailsPage,
 } from 'pages';
 
 export type AppRoutesProps = RouteProps & {
@@ -11,6 +11,8 @@ export enum EAppRoutes {
     Main = 'main',
     About = 'about',
     Profile = 'profile',
+    Articles = 'articles',
+    Articles_Details = 'article_details',
     NotFound = 'notFound'
 }
 
@@ -18,6 +20,8 @@ export const RoutPath: Record<EAppRoutes, string> = {
     [EAppRoutes.Main]: '/',
     [EAppRoutes.About]: '/about',
     [EAppRoutes.Profile]: '/profile',
+    [EAppRoutes.Articles]: '/articles',
+    [EAppRoutes.Articles_Details]: '/articles/',
     [EAppRoutes.NotFound]: '*',
 };
 
@@ -33,6 +37,16 @@ export const routeConfig: Record<EAppRoutes, AppRoutesProps> = {
     [EAppRoutes.Profile]: {
         path: RoutPath.profile,
         element: <ProfilePage />,
+        authOnly: true,
+    },
+    [EAppRoutes.Articles]: {
+        path: RoutPath.articles,
+        element: <ArticlesPage />,
+        authOnly: true,
+    },
+    [EAppRoutes.Articles_Details]: {
+        path: `${RoutPath.article_details}:id`,
+        element: <ArticleDetailsPage />,
         authOnly: true,
     },
     [EAppRoutes.NotFound]: {

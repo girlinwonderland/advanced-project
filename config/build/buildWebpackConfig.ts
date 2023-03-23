@@ -19,6 +19,7 @@ export const buildWebpackConfig = ({
         filename: '[name].[contenthash].js',
         path: path.output,
         clean: true,
+        publicPath: '/',
     },
     devtool: isDev ? 'inline-source-map' : undefined,
     devServer: isDev ? buildDevServer(port) : undefined,

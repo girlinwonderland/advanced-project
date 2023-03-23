@@ -9,3 +9,6 @@ export { Text, ETextType, TextAlign } from './ui/Text/Text';
 export * from './const';
 export * from './api/api';
 export { Avatar } from './ui/Avatar/Avatar';
+export { Skeleton } from './ui/Skeleton/Skeleton';
+export { Icon } from './ui/Icon/Icon';
+export { Code } from './ui/Code/Code';

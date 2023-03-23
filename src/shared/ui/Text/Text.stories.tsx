@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ETextType, Text } from './Text';
+import { ETextSize, ETextType, Text } from './Text';
 
 export default {
     title: 'Shared/Text',
@@ -33,4 +33,11 @@ Error.args = {
     title: 'title...',
     text: 'text...',
     type: ETextType.Error,
+};
+
+export const SizeL = Template.bind({});
+SizeL.args = {
+    title: 'Title lorem ipsun',
+    text: 'Description Description Description Description',
+    size: ETextSize.L,
 };
