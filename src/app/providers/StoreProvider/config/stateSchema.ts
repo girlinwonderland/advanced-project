@@ -8,6 +8,7 @@ import { UserSchema } from 'entities/User/model/types/userSchema';
 import { ProfileSchema } from 'entities/Profile';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ArticleDetailsSchema } from 'entities/Article';
+import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 
 export enum EErrors {
     IncorrectData = 'login error incorrect',
@@ -19,7 +20,8 @@ export interface StateSchema {
     user: UserSchema,
     login?: LoginSchema,
     profile?: ProfileSchema,
-    articleDetails?: ArticleDetailsSchema
+    articleDetails?: ArticleDetailsSchema,
+    articleDetailsComments?: ArticleDetailsCommentsSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
