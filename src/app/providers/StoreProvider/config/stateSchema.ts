@@ -8,6 +8,7 @@ import { UserSchema } from 'entities/User/model/types/userSchema';
 import { ProfileSchema } from 'entities/Profile';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ArticleDetailsSchema } from 'entities/Article';
+import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 
 export enum EErrors {
@@ -22,6 +23,7 @@ export interface StateSchema {
     profile?: ProfileSchema,
     articleDetails?: ArticleDetailsSchema,
     articleDetailsComments?: ArticleDetailsCommentsSchema;
+    addCommentForm?: AddCommentFormSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

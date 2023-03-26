@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { AppLink, ELinkTheme, classNames } from 'shared';
 import { useSelector } from 'react-redux';
 import { getUserAuth } from 'entities/User';
-import { SidebarItemType } from '../../model/items';
+import { SidebarItemType } from 'widgets/Sidebar/model/types';
 import style from './SidebarItem.module.scss';
 
 interface SidebarItemProps {

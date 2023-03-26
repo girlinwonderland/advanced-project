@@ -1,5 +1,6 @@
-import { memo, useEffect, useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -14,6 +15,7 @@ import {
 } from 'entities/Profile';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
+import { useInitialEffect } from 'shared/lib';
 import { ProfilePageHeader } from './ProfileHeader/ProfileHeader';
 
 const reducers: ReducerList = {
@@ -32,7 +34,8 @@ export const ProfilePage = memo(({ className }: ProfilePageProps) => {
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidateErrors);
-
+    const { id } = useParams<{ id: string }>();
+ 
     const validateErrorTranslates = {
         [EValidateProfileError.SERVER_ERROR]: t('server save error'),
         [EValidateProfileError.INCORRECT_COUNTRY]: t('incorrect region'),
@@ -41,11 +44,11 @@ export const ProfilePage = memo(({ className }: ProfilePageProps) => {
         [EValidateProfileError.INCORRECT_AGE]: t('incorrect age'),
     };
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id));
         }
-    }, [dispatch]);
+    });
 
     const onChangeFirstname = useCallback((value?: string) => {
         dispatch(ProfileActions.updateProfile({ first: value || '' }));
