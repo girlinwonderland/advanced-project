@@ -8,6 +8,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch, useInitialEffect } from 'shared/lib';
 import { Button, EButtonTheme } from 'shared/ui/Button/Button';
 import { RoutPath } from 'shared/config/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Text } from 'shared/ui/Text/Text';
 import { AddCommentForm } from 'features/AddCommentForm';
@@ -48,15 +49,15 @@ export const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) 
 
     if (!id) {
         return (
-            <div className={classNames(styles.ArticleDetailsPage, {}, [className])}>
+            <Page className={classNames(styles.ArticleDetailsPage, {}, [className])}>
                 {t('error_not_found')}
-            </div>
+            </Page>
         );
     }
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames(styles.ArticleDetailsPage, {}, [className])}>
+            <Page className={classNames(styles.ArticleDetailsPage, {}, [className])}>
                 <Button theme={EButtonTheme.OutLine} onClick={onBackToList}>
                     {t('back to list')}
                 </Button>
@@ -64,7 +65,7 @@ export const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) 
                 <Text className={styles.commentTitle} title={t('comments')} />
                 <AddCommentForm onSendComment={onSendComment} />
                 <CommentList comments={comments} isLoading={commentsIsLoading} />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 });

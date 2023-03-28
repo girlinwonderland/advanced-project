@@ -43,7 +43,7 @@ export const Navbar = memo(({ className }: NavBarProps) => {
     }
 
     return (
-        <div className={classNames(styles.navbar, {}, [className])}>
+        <header className={classNames(styles.navbar, {}, [className])}>
             <Button
                 onClick={onOpen}
                 theme={EButtonTheme.ClearInverted}
@@ -52,6 +52,6 @@ export const Navbar = memo(({ className }: NavBarProps) => {
                 {t('enter')}
             </Button>
             {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onClose} />}
-        </div>
+        </header>
     );
 });

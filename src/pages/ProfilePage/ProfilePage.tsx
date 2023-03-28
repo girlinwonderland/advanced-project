@@ -6,6 +6,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useDispatch';
 import { ETextType, Text } from 'shared/ui/Text/Text';
+import { Page } from 'shared/ui/Page/Page';
 import {
     ProfileReducer, ProfileActions, fetchProfileData,
     ProfileCard, getProfileForm,
@@ -35,7 +36,7 @@ export const ProfilePage = memo(({ className }: ProfilePageProps) => {
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidateErrors);
     const { id } = useParams<{ id: string }>();
- 
+
     const validateErrorTranslates = {
         [EValidateProfileError.SERVER_ERROR]: t('server save error'),
         [EValidateProfileError.INCORRECT_COUNTRY]: t('incorrect region'),
@@ -84,7 +85,7 @@ export const ProfilePage = memo(({ className }: ProfilePageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames('', {}, [className])}>
+            <Page className={classNames('', {}, [className])}>
                 <ProfilePageHeader />
                 {validateErrors?.length && validateErrors.map((err) => (
                     <Text
@@ -107,7 +108,7 @@ export const ProfilePage = memo(({ className }: ProfilePageProps) => {
                     onChangeCurrency={onChangeCurrency}
                     onChangeCountry={onChangeCountry}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 });
