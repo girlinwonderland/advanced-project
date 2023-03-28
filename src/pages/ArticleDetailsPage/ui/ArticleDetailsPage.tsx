@@ -58,7 +58,7 @@ export const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) 
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames(styles.ArticleDetailsPage, {}, [className])}>
                 <Button theme={EButtonTheme.OutLine} onClick={onBackToList}>
-                    {t('Назад к списку')}
+                    {t('back to list')}
                 </Button>
                 <ArticleDetails id={id} />
                 <Text className={styles.commentTitle} title={t('comments')} />
