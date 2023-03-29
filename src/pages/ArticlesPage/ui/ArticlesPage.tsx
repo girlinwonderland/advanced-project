@@ -5,9 +5,9 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useInitialEffect } from 'shared/lib/hooks/useInit';
 import { useAppDispatch } from 'shared/lib/hooks/useDispatch';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 import { ArticleList, ArticleView, ArticleViewSelector } from 'entities/Article';
-import { fetchArticles } from '../model/services/fetchArticlesList';
+import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage';
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage';
 import { ArticleSliceReducer, ArticleSliceActions, getArticles } from '../model/slices/articlesPageSlice';
 import {
@@ -42,12 +42,11 @@ export const ArticlesPage = memo((props: ArticlesPageProps) => {
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(ArticleSliceActions.initState());
-        dispatch(fetchArticles({ page: 1 }));
+        dispatch(initArticlesPage());
     });
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page
                 onScrollEnd={onLoadNextPart}
                 className={classNames(styles.ArticlesPage, {}, [className])}

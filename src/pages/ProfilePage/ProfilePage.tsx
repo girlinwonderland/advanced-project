@@ -6,7 +6,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useDispatch';
 import { ETextType, Text } from 'shared/ui/Text/Text';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 import {
     ProfileReducer, ProfileActions, fetchProfileData,
     ProfileCard, getProfileForm,

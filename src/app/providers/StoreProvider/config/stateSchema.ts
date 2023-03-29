@@ -11,6 +11,7 @@ import { ArticleDetailsSchema } from 'entities/Article';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { ArticlePageSchema } from 'pages/ArticlesPage';
+import { ScrollSchema } from 'features/SaveScroll';
 
 export enum EErrors {
     IncorrectData = 'login error incorrect',
@@ -26,6 +27,7 @@ export interface StateSchema {
     articleDetailsComments?: ArticleDetailsCommentsSchema;
     addCommentForm?: AddCommentFormSchema;
     articlesPage?: ArticlePageSchema;
+    scroll: ScrollSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
@@ -42,7 +44,6 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 
 export interface ThunkExtraArg {
     api: AxiosInstance;
-    navigate?: (to: To, options?: NavigateOptions) => void,
 }
 
 export interface ThunkConfig<T> {

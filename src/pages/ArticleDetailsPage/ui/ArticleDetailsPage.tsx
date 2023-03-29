@@ -8,7 +8,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch, useInitialEffect } from 'shared/lib';
 import { Button, EButtonTheme } from 'shared/ui/Button/Button';
 import { RoutPath } from 'shared/config/routeConfig';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Text } from 'shared/ui/Text/Text';
 import { AddCommentForm } from 'features/AddCommentForm';
