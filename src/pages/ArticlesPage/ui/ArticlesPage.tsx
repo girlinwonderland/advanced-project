@@ -1,20 +1,21 @@
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { useSearchParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useInitialEffect } from 'shared/lib/hooks/useInit';
 import { useAppDispatch } from 'shared/lib/hooks/useDispatch';
 import { Page } from 'widgets/Page/Page';
-import { ArticleList, ArticleView, ArticleViewSelector } from 'entities/Article';
+import { ArticleList } from 'entities/Article';
 import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage';
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage';
-import { ArticleSliceReducer, ArticleSliceActions, getArticles } from '../model/slices/articlesPageSlice';
+import { ArticleSliceReducer, getArticles } from '../model/slices/articlesPageSlice';
 import {
-    getArticlesPageError,
     getArticlesPageIsLoading,
     getArticlesPageView,
 } from '../model/selectors';
+import { ArticlesPageFilters } from './ArticlesPageFilters/ArticlesPageFilters';
 import styles from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
@@ -33,16 +34,14 @@ export const ArticlesPage = memo((props: ArticlesPageProps) => {
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(getArticlesPageIsLoading);
     const view = useSelector(getArticlesPageView);
-    const error = useSelector(getArticlesPageError);
-
-    const onChangeView = useCallback((view: ArticleView) => dispatch(ArticleSliceActions.setView(view)), [dispatch]);
+    const [searchParams] = useSearchParams();
 
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchNextArticlesPage());
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(initArticlesPage());
+        dispatch(initArticlesPage(searchParams));
     });
 
     return (
@@ -51,11 +50,12 @@ export const ArticlesPage = memo((props: ArticlesPageProps) => {
                 onScrollEnd={onLoadNextPart}
                 className={classNames(styles.ArticlesPage, {}, [className])}
             >
-                <ArticleViewSelector view={view} onViewClick={onChangeView} />
+                <ArticlesPageFilters />
                 <ArticleList
                     isLoading={isLoading}
                     view={view}
                     articles={articles}
+                    className={styles.list}
                 />
             </Page>
         </DynamicModuleLoader>
