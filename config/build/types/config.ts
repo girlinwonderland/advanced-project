@@ -4,7 +4,9 @@ export type TBuildPath = {
     entry: string,
     output: string,
     html: string,
-    src: string
+    src: string,
+    locales: string,
+    buildLocales: string
 }
 
 export interface IBuildOptions {

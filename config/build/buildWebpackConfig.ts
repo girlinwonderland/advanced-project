@@ -14,7 +14,7 @@ export const buildWebpackConfig = ({
         rules: buildLoaders(isDev),
     },
     resolve: buildResolve(path.src),
-    plugins: buildPlugin(path.html, isDev, apiUrl, project),
+    plugins: buildPlugin(path.html, isDev, apiUrl, project, path.locales, path.buildLocales),
     output: {
         filename: '[name].[contenthash].js',
         path: path.output,
