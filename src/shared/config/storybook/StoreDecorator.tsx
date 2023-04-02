@@ -4,8 +4,8 @@ import { LoginReducer } from 'features/AuthByUsername';
 import { ProfileReducer } from 'entities/Profile';
 import { ArticleReducer } from 'entities/Article';
 import { AddCommentFormReducer } from 'features/AddCommentForm';
-import { ArticleDetailsCommentsReducer } from 'pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice';
 import { ArticleSliceReducer } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
+import { ArticleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices';
 import { ReducerList } from '../../lib';
 
 const defaultAsyncReducer: ReducerList = {
@@ -13,7 +13,7 @@ const defaultAsyncReducer: ReducerList = {
     profile: ProfileReducer,
     articleDetails: ArticleReducer,
     addCommentForm: AddCommentFormReducer,
-    articleDetailsComments: ArticleDetailsCommentsReducer,
+    articleDetailsPage: ArticleDetailsPageReducer,
     articlesPage: ArticleSliceReducer,
 };
 

@@ -20,5 +20,6 @@
   "profile page": "Profile page",
   "select currency": "select currency",
   "select country": "select country",
-  "article": "Article"
+  "article": "Article",
+  "notFoundArticles": "Articles not Found:("
 }

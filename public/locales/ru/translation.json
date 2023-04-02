@@ -20,5 +20,6 @@
   "profile page": "Страница профиля",
   "select currency": "укажите валюту",
   "select country": "укажите страну",
-  "article": "Статьи"
+  "article": "Статьи",
+  "notFoundArticles": "Статьи не найдены"
 }
