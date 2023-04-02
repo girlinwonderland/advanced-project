@@ -1,6 +1,6 @@
 import { RouteProps } from 'react-router-dom';
 import {
-    AboutPage, MainPage, NotFound, ProfilePage, ArticlesPage, ArticleDetailsPage,
+    AboutPage, MainPage, NotFound, ProfilePage, ArticlesPage, ArticleDetailsPage, ArticleEditPage,
 } from 'pages';
 
 export type AppRoutesProps = RouteProps & {
@@ -13,6 +13,8 @@ export enum EAppRoutes {
     Profile = 'profile',
     Articles = 'articles',
     Articles_Details = 'article_details',
+    Article_Create = 'article_create',
+    Article_Edit = 'article_edit',
     NotFound = 'notFound'
 }
 
@@ -22,6 +24,8 @@ export const RoutPath: Record<EAppRoutes, string> = {
     [EAppRoutes.Profile]: '/profile/',
     [EAppRoutes.Articles]: '/articles',
     [EAppRoutes.Articles_Details]: '/articles/',
+    [EAppRoutes.Article_Create]: '/articles/new',
+    [EAppRoutes.Article_Edit]: '/articles/:id/edit',
     [EAppRoutes.NotFound]: '*',
 };
 
@@ -47,6 +51,16 @@ export const routeConfig: Record<EAppRoutes, AppRoutesProps> = {
     [EAppRoutes.Articles_Details]: {
         path: `${RoutPath.article_details}:id`,
         element: <ArticleDetailsPage />,
+        authOnly: true,
+    },
+    [EAppRoutes.Article_Create]: {
+        path: `${RoutPath.article_create}`,
+        element: <ArticleEditPage />,
+        authOnly: true,
+    },
+    [EAppRoutes.Article_Edit]: {
+        path: `${RoutPath.article_edit}`,
+        element: <ArticleEditPage />,
         authOnly: true,
     },
     [EAppRoutes.NotFound]: {

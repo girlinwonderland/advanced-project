@@ -1,13 +1,11 @@
 import { memo, useCallback } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ArticleDetails, ArticleList } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch, useInitialEffect } from 'shared/lib';
-import { Button, EButtonTheme } from 'shared/ui/Button/Button';
-import { RoutPath } from 'shared/config/routeConfig';
 import { Page } from 'widgets/Page/Page';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { ETextSize, Text } from 'shared/ui/Text/Text';
@@ -19,6 +17,7 @@ import { addComments } from '../model/services/addComment';
 import { fetchComments } from '../model/services/fetchComments';
 import { fetchRecommendations } from '../model/services/fetchReccomendations';
 import { ArticleDetailsPageReducer } from '../model/slices';
+import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import styles from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -37,12 +36,6 @@ export const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) 
     const recommendations = useSelector(getArticleRecommendations.selectAll);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
     const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
-
-    const navigate = useNavigate();
-
-    const onBackToList = useCallback(() => {
-        navigate(RoutPath.articles);
-    }, [navigate]);
 
     useInitialEffect(() => {
         dispatch(fetchComments(id));
@@ -64,9 +57,7 @@ export const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page className={classNames(styles.ArticleDetailsPage, {}, [className])}>
-                <Button theme={EButtonTheme.OutLine} onClick={onBackToList}>
-                    {t('back to list')}
-                </Button>
+                <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
                 <Text
                     size={ETextSize.L}

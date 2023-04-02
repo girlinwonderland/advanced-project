@@ -2,6 +2,12 @@ import { memo, useMemo } from 'react';
 import { classNames } from '../../lib/classNames';
 import styles from './Text.module.scss';
 
+export enum TextTheme {
+    Primary = 'primary',
+    Inverted = 'inverted',
+    Error = 'error',
+}
+
 export enum ETextType {
     Primary = 'primary',
     Error = 'error'
@@ -20,6 +26,7 @@ export enum ETextSize {
 
 interface TextProps {
     className?: string,
+    theme?: TextTheme;
     text?: string,
     title?: string,
     type?: ETextType,
@@ -32,10 +39,11 @@ export const Text = memo(({
     type = ETextType.Primary,
     size = ETextSize.M,
     align = TextAlign.Left,
+    theme = TextTheme.Primary,
 }: TextProps) => {
     const classMode = useMemo(() => ({
-        [styles[type]]: true, [styles[align]]: true, [styles[size]]: true,
-    }), [type, align, size]);
+        [styles[type]]: true, [styles[align]]: true, [styles[size]]: true, [styles[theme]]: true,
+    }), [type, align, size, theme]);
     return (
         <div className={classNames(styles.Text, classMode, [className])}>
             {title && <p className={styles.title}>{title}</p>}

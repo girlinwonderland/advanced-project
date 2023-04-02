@@ -1,7 +1,10 @@
 import React, { useCallback, useState, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { Button, classNames, EButtonTheme } from 'shared';
+import {
+    AppLink, Button, classNames, EButtonTheme, ELinkTheme, RoutPath,
+} from 'shared';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { LoginModal } from 'features/AuthByUsername';
 import { getUserAuth, UserActions } from 'entities/User';
 import styles from './Navbar.module.scss';
@@ -30,7 +33,19 @@ export const Navbar = memo(({ className }: NavBarProps) => {
 
     if (authData) {
         return (
-            <div className={classNames(styles.navbar, {}, [className])}>
+            <header className={classNames(styles.navbar, {}, [className])}>
+                <Text
+                    className={styles.appName}
+                    title={t('Ulbi TV App')}
+                    theme={TextTheme.Inverted}
+                />
+                <AppLink
+                    to={RoutPath.article_create}
+                    theme={ELinkTheme.Secondary}
+                    className={styles.createBtn}
+                >
+                    {t('Создать статью')}
+                </AppLink>
                 <Button
                     onClick={onLogout}
                     theme={EButtonTheme.ClearInverted}
@@ -38,7 +53,7 @@ export const Navbar = memo(({ className }: NavBarProps) => {
                 >
                     {t('logout')}
                 </Button>
-            </div>
+            </header>
         );
     }
 
