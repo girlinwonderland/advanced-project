@@ -4,6 +4,7 @@ import {
     EButtonTheme, ButtonSize,
 } from 'shared';
 import { useSelector } from 'react-redux';
+import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import { ThemeSwitcher } from '../../../ThemeSwitcher/ui';
 import { LangSwitcher } from '../../../LangSwitcher/ui/LangSwitcher';
 import { getSidebarItems } from '../../model/selectors';
@@ -19,7 +20,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     const sidebarItems = useSelector(getSidebarItems);
     const onToggle = useCallback(() => setCollapsed((prev) => !prev), [setCollapsed]);
     return (
-        <menu
+        <aside
             data-testid="sidebar"
             className={classNames(styles.Sidebar, { [styles.collapsed]: collapsed }, [className])}
         >
@@ -33,7 +34,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             >
                 {collapsed ? '>' : '<'}
             </Button>
-            <div className={styles.items}>
+            <VStack role="navigation" gap="8" className={styles.items}>
                 { sidebarItems.map((item) => (
                     <SidebarItem
                         item={item}
@@ -41,11 +42,11 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                         key={item.path}
                     />
                 )) }
-            </div>
+            </VStack>
             <div className={styles.switchers}>
                 <ThemeSwitcher />
                 <LangSwitcher className={styles.lang} short={collapsed} />
             </div>
-        </menu>
+        </aside>
     );
 });
