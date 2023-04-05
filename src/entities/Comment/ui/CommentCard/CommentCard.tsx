@@ -4,6 +4,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Text } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { RoutPath } from 'shared/config/routeConfig';
+import { VStack } from 'shared/ui/Stack';
 import { AppLink } from 'shared/ui/AppLink';
 import { Comment } from '../../model/types';
 import styles from './CommentCard.module.scss';
@@ -32,14 +33,12 @@ export const CommentCard = memo(({ className, comment, isLoading }: CommentCardP
     }
 
     return (
-        <div className={classNames(styles.CommentCard, {}, [className])}>
-            <div className={styles.header}>
-                <AppLink to={`${RoutPath.profile}${comment.user.id}`}>
-                    {comment.user.avatar ? <Avatar size={30} src={comment.user.avatar} /> : null}
-                    <Text className={styles.username} title={comment.user.username} />
-                </AppLink>
-            </div>
+        <VStack gap="8" max className={classNames(styles.CommentCard, {}, [className])}>
+            <AppLink to={`${RoutPath.profile}${comment.user.id}`}>
+                {comment.user.avatar ? <Avatar size={30} src={comment.user.avatar} /> : null}
+                <Text className={styles.username} title={comment.user.username} />
+            </AppLink>
             <Text className={styles.text} text={comment.text} />
-        </div>
+        </VStack>
     );
 });

@@ -4,11 +4,11 @@ import { Button, EButtonTheme, Text } from 'shared';
 import { useAppDispatch } from 'shared/lib/hooks/useDispatch';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { HStack } from 'shared/ui/Stack';
 import {
-    getProfileData, getProfileReadonly, ProfileActions, updateProfileData, 
+    getProfileData, getProfileReadonly, ProfileActions, updateProfileData,
 } from 'entities/Profile';
 import { getUserAuth } from 'entities/User';
-import styles from './ProfileHeader.module.scss';
 
 interface ProfilePageHeaderProps {
     className?: string;
@@ -41,15 +41,14 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
     }, [dispatch]);
 
     return (
-        <div className={classNames(styles.ProfilePageHeader, {}, [className])}>
+        <HStack max justify="between" className={classNames('', {}, [className])}>
             <Text title={t('profile')} />
             {
                 canEdit && (
-                    <div className={styles.btnsWrapper}>
+                    <div>
                         {readonly
                             ? (
                                 <Button
-                                    className={styles.editBtn}
                                     theme={EButtonTheme.OutLine}
                                     onClick={onEdit}
                                 >
@@ -59,14 +58,12 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                             : (
                                 <>
                                     <Button
-                                        className={styles.editBtn}
                                         theme={EButtonTheme.OutLine}
                                         onClick={onCancelEdit}
                                     >
                                         {t('cancel')}
                                     </Button>
                                     <Button
-                                        className={styles.saveBtn}
                                         theme={EButtonTheme.OutLine}
                                         onClick={onSave}
                                     >
@@ -77,6 +74,6 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                     </div>
                 )
             }
-        </div>
+        </HStack>
     );
 };
