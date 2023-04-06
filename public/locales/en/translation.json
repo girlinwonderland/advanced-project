@@ -21,5 +21,6 @@
   "select currency": "select currency",
   "select country": "select country",
   "article": "Article",
-  "notFoundArticles": "Articles not Found:("
+  "notFoundArticles": "Articles not Found:(",
+  "select country"
 }
