@@ -2,7 +2,7 @@ import {
     AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { NavigateOptions, To } from 'react-router';
+import { rtkApi } from 'shared/api/rtkApi';
 import { CounterSchema } from 'entities/Counter/model/types/counterSchema';
 import { UserSchema } from 'entities/User/model/types/userSchema';
 import { ProfileSchema } from 'entities/Profile';
@@ -21,6 +21,7 @@ export enum EErrors {
 export interface StateSchema {
     counter: CounterSchema,
     user: UserSchema,
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
     login?: LoginSchema,
     profile?: ProfileSchema,
     articleDetails?: ArticleDetailsSchema,

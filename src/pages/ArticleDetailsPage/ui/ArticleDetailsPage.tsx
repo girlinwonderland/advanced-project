@@ -11,6 +11,7 @@ import { VStack } from 'shared/ui/Stack';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { ETextSize, Text } from 'shared/ui/Text/Text';
 import { AddCommentForm } from 'features/AddCommentForm';
+import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList';
 import { getArticleComments } from '../model/slices/articleDetailsCommentsSlice';
 import { getArticleRecommendations } from '../model/slices/articleDetailsPageRecommendationsSlice';
 import { getArticleCommentsIsLoading, getArticleRecommendationsIsLoading } from '../model/selectors';
@@ -61,17 +62,7 @@ export const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) 
                 <VStack gap="16" max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
-                    <Text
-                        size={ETextSize.L}
-                        className={styles.commentTitle}
-                        title={t('recommends')}
-                    />
-                    <ArticleList
-                        articles={recommendations}
-                        isLoading={recommendationsIsLoading}
-                        className={styles.recommendations}
-                        target="_blank"
-                    />
+                    <ArticleRecommendationsList />
                     <Text className={styles.commentTitle} title={t('comments')} />
                     <AddCommentForm onSendComment={onSendComment} />
                     <CommentList comments={comments} isLoading={commentsIsLoading} />
