@@ -5,6 +5,8 @@ import {
     AppLink, Button, classNames, EButtonTheme, ELinkTheme, RoutPath,
 } from 'shared';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { LoginModal } from 'features/AuthByUsername';
 import { getUserAuth, UserActions } from 'entities/User';
 import styles from './Navbar.module.scss';
@@ -44,15 +46,23 @@ export const Navbar = memo(({ className }: NavBarProps) => {
                     theme={ELinkTheme.Secondary}
                     className={styles.createBtn}
                 >
-                    {t('Создать статью')}
+                    {t('createArticle')}
                 </AppLink>
-                <Button
-                    onClick={onLogout}
-                    theme={EButtonTheme.ClearInverted}
-                    className={styles.links}
-                >
-                    {t('logout')}
-                </Button>
+                <Dropdown
+                    direction="bottom left"
+                    className={styles.dropdown}
+                    items={[
+                        {
+                            content: t('profile'),
+                            href: RoutPath.profile + authData.id,
+                        },
+                        {
+                            content: t('logout'),
+                            onClick: onLogout,
+                        },
+                    ]}
+                    trigger={<Avatar size={30} src={authData.avatar} />}
+                />
             </header>
         );
     }

@@ -22,5 +22,5 @@
   "select country": "select country",
   "article": "Article",
   "notFoundArticles": "Articles not Found:(",
-  "select country"
+  "createArticle": "create Article"
 }
