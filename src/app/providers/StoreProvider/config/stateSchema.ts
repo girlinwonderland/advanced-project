@@ -5,13 +5,13 @@ import { AxiosInstance } from 'axios';
 import { rtkApi } from 'shared/api/rtkApi';
 import { CounterSchema } from 'entities/Counter/model/types/counterSchema';
 import { UserSchema } from 'entities/User/model/types/userSchema';
-import { ProfileSchema } from 'entities/Profile';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { ArticlePageSchema } from 'pages/ArticlesPage';
 import { ScrollSchema } from 'features/SaveScroll';
+import { ProfileSchema } from 'features/EditableProfileCard/model/types';
 
 export enum EErrors {
     IncorrectData = 'login error incorrect',

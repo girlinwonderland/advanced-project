@@ -5,16 +5,18 @@ import { useAppDispatch } from 'shared/lib/hooks/useDispatch';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { HStack } from 'shared/ui/Stack';
-import {
-    getProfileData, getProfileReadonly, ProfileActions, updateProfileData,
-} from 'entities/Profile';
 import { getUserAuth } from 'entities/User';
+import {
+    getProfileData, getProfileReadonly,
+} from '../../model/selectors';
+import { ProfileActions } from '../../model/slice/profileSlice';
+import { updateProfileData } from '../../model/services/updateProfileData';
 
 interface ProfilePageHeaderProps {
     className?: string;
 }
 
-export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
+export const EditableProfileCardHeader = (props: ProfilePageHeaderProps) => {
     const {
         className,
     } = props;
