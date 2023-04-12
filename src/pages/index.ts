@@ -5,3 +5,5 @@ export { ProfilePageAsync as ProfilePage } from './ProfilePage/ProfilePage.async
 export { ArticlesPage } from './ArticlesPage';
 export { ArticleDetailsPage } from './ArticleDetailsPage';
 export { ArticleEditPage } from './ArticleEditPage';
+export { AdminPanelPage } from './AdminPanelPage';
+export { ForbiddenPage } from './ForbiddenPage';

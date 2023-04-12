@@ -21,5 +21,7 @@
   "select currency": "укажите валюту",
   "select country": "укажите страну",
   "article": "Статьи",
-  "notFoundArticles": "Статьи не найдены"
+  "notFoundArticles": "Статьи не найдены",
+  "admin page": "Админ панель",
+  "forbidden page": "У вас нет доступа к этой странице"
 }

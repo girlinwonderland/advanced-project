@@ -5,7 +5,9 @@ import { Loading } from 'widgets/Loading/ui/Loading';
 import { ProtectedRoute } from './ProtectedRoute';
 
 export const AppRouter = () => {
-    const renderWithWrapper = useCallback(({ path, element, authOnly }: AppRoutesProps) => {
+    const renderWithWrapper = useCallback(({
+        path, element, authOnly, roles,
+    }: AppRoutesProps) => {
         const elem = (
             <Suspense fallback={<Loading />}>
                 {element}
@@ -15,7 +17,7 @@ export const AppRouter = () => {
             <Route
                 key={path}
                 path={path}
-                element={authOnly ? <ProtectedRoute>{elem}</ProtectedRoute> : elem}
+                element={authOnly ? <ProtectedRoute roles={roles}>{elem}</ProtectedRoute> : elem}
             />
         );
     }, []);

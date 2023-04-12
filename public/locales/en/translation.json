@@ -22,5 +22,7 @@
   "select country": "select country",
   "article": "Article",
   "notFoundArticles": "Articles not Found:(",
-  "createArticle": "create Article"
+  "createArticle": "create Article",
+  "admin page": "Admin page",
+  "forbidden page": "You have not access to this page"
 }

@@ -1,14 +1,18 @@
-import React, { useCallback, useState, memo } from 'react';
+import React, {
+    useCallback, useState, memo, useMemo,
+} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import {
     AppLink, Button, classNames, EButtonTheme, ELinkTheme, RoutPath,
 } from 'shared';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Dropdown, DropdownItem } from 'shared/ui/Dropdown/Dropdown';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { LoginModal } from 'features/AuthByUsername';
-import { getUserAuth, UserActions } from 'entities/User';
+import {
+    getUserAuth, UserActions, isUserAdmin, isUserManager,
+} from 'entities/User';
 import styles from './Navbar.module.scss';
 
 interface NavBarProps {
@@ -19,6 +23,9 @@ export const Navbar = memo(({ className }: NavBarProps) => {
     const { t } = useTranslation();
 
     const authData = useSelector(getUserAuth);
+
+    const isAdmin = useSelector(isUserAdmin);
+    const isManager = useSelector(isUserManager);
 
     const dispatch = useDispatch();
 
@@ -32,6 +39,26 @@ export const Navbar = memo(({ className }: NavBarProps) => {
         setIsAuthModal(false);
         dispatch(UserActions.logout());
     }, [dispatch]);
+
+    const dropDownItems: DropdownItem[] = useMemo(() => {
+        const items: DropdownItem[] = [{
+            content: t('logout'),
+            onClick: onLogout,
+        }];
+        if (authData) {
+            items.push({
+                content: t('profile'),
+                href: RoutPath.profile + authData.id,
+            });
+        }
+        if (isAdmin || isManager) {
+            items.push({
+                content: t('admin'),
+                href: RoutPath.admin_panel,
+            });
+        }
+        return items;
+    }, [onLogout, authData, t, isAdmin, isManager]);
 
     if (authData) {
         return (
@@ -51,16 +78,7 @@ export const Navbar = memo(({ className }: NavBarProps) => {
                 <Dropdown
                     direction="bottom left"
                     className={styles.dropdown}
-                    items={[
-                        {
-                            content: t('profile'),
-                            href: RoutPath.profile + authData.id,
-                        },
-                        {
-                            content: t('logout'),
-                            onClick: onLogout,
-                        },
-                    ]}
+                    items={dropDownItems}
                     trigger={<Avatar size={30} src={authData.avatar} />}
                 />
             </header>

@@ -18,13 +18,13 @@ interface CommentCardProps {
 export const CommentCard = memo(({ className, comment, isLoading }: CommentCardProps) => {
     if (isLoading) {
         return (
-            <div className={classNames(styles.CommentCard, {}, [className, styles.loading])}>
+            <VStack gap="8" max className={classNames(styles.CommentCard, {}, [className, styles.loading])}>
                 <div className={styles.header}>
                     <Skeleton width={30} height={30} border="50%" />
                     <Skeleton height={16} width={100} className={styles.username} />
                 </div>
                 <Skeleton className={styles.text} width="100%" height={50} />
-            </div>
+            </VStack>
         );
     }
 
