@@ -29,7 +29,8 @@ const reducers: ReducerList = {
     profile: ProfileReducer,
 };
 
-export const EditableProfileCard: FC<EditableProfileCardProps> = memo(({ className, id }) => {
+export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
+    const { className, id } = props;
     const { t } = useTranslation('profile');
 
     const dispatch = useAppDispatch();
@@ -98,6 +99,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = memo(({ classNa
                         key={err}
                         type={ETextType.Error}
                         text={validateErrorTranslates[err]}
+                        testId="EditableProfileCard.Error"
                     />
                 ))}
                 <ProfileCard

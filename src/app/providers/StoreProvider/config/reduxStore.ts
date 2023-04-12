@@ -1,6 +1,6 @@
 import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
 import { CombinedState, Reducer } from 'redux';
-import { $api } from 'shared';
+import { $api } from 'shared/api/api';
 import { rtkApi } from 'shared/api/rtkApi';
 import { CounterReducer } from 'entities/Counter';
 import { UserReducer } from 'entities/User';

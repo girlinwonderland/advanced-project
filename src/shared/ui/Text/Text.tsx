@@ -33,6 +33,7 @@ interface TextProps {
     type?: ETextType,
     align?: TextAlign,
     size?: ETextSize,
+    testId?: string
 }
 
 type HeaderTagType = 'h1' | 'h2' | 'h3';
@@ -49,6 +50,7 @@ export const Text = memo(({
     size = ETextSize.M,
     align = TextAlign.Left,
     theme = TextTheme.Primary,
+    testId,
 }: TextProps) => {
     const HeaderTag = mapSizeToHeaderTag[size];
     const classMode = useMemo(() => ({
@@ -56,8 +58,8 @@ export const Text = memo(({
     }), [type, align, size, theme]);
     return (
         <div className={classNames(styles.Text, classMode, [className])}>
-            {title && <HeaderTag className={styles.title}>{title}</HeaderTag>}
-            {text && <p className={styles.text}>{text}</p>}
+            {title && <HeaderTag className={styles.title} data-testid={`${testId}.Header`}>{title}</HeaderTag>}
+            {text && <p className={styles.text} data-testid={`${testId}.Paragraph`}>{text}</p>}
         </div>
     );
 });
