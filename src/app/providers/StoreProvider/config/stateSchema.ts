@@ -13,11 +13,6 @@ import { ArticlePageSchema } from 'pages/ArticlesPage';
 import { ScrollSchema } from 'features/SaveScroll';
 import { ProfileSchema } from 'features/EditableProfileCard/model/types';
 
-export enum EErrors {
-    IncorrectData = 'login error incorrect',
-    SererError = 'login error server',
-}
-
 export interface StateSchema {
     counter: CounterSchema,
     user: UserSchema,

@@ -10,9 +10,10 @@ import { AppLink } from 'shared/ui/AppLink';
 import { Button, EButtonTheme } from 'shared/ui/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { RoutPath } from 'shared/config/routeConfig';
+import { ArticleBlockType, ArticleView } from '../../model/consts';
 import styles from './ArticleListItem.module.scss';
 import {
-    Article, ArticleBlockType, ArticleTextBlock, ArticleView,
+    Article, ArticleTextBlock,
 } from '../../model/types';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
@@ -25,7 +26,7 @@ interface ArticleListItemProps {
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
     const {
-        className, article, view, target, 
+        className, article, view, target,
     } = props;
     const { t } = useTranslation();
     const navigate = useNavigate();

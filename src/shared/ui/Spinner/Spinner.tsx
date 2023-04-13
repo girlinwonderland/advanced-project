@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { classNames } from 'shared';
+import { classNames } from '../../lib/classNames/classNames';
 import './Spinner.scss';
 
 interface LoadingProps {

@@ -1,10 +1,10 @@
 import { memo } from 'react';
 import { classNames, TMode } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import {
-    ETextType, Input, Text, TextAlign, Avatar,
-} from 'shared';
-import { Loading } from 'widgets';
+import { ETextType, Text, TextAlign } from 'shared/ui/Text/Text';
+import { Input } from 'shared/ui/Input/Input';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Loading } from 'widgets/Loading/ui/Loading';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { CurrencySelect, Currency } from '../../../Currency';
 import { Country, CountrySelect } from '../../../Country';

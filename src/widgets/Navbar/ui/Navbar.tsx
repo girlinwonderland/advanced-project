@@ -3,9 +3,10 @@ import React, {
 } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import {
-    AppLink, Button, classNames, EButtonTheme, ELinkTheme, RoutPath,
-} from 'shared';
+import { Button, EButtonTheme } from 'shared/ui/Button/Button';
+import { RoutPath } from 'shared/config/routeConfig';
+import { AppLink, ELinkTheme } from 'shared/ui/AppLink';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Dropdown, DropdownItem } from 'shared/ui/Dropdown/Dropdown';
 import { Avatar } from 'shared/ui/Avatar/Avatar';

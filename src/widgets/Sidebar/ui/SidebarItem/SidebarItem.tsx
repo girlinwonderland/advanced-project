@@ -1,9 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { AppLink, ELinkTheme, classNames } from 'shared';
+import { AppLink, ELinkTheme } from 'shared/ui/AppLink';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { useSelector } from 'react-redux';
 import { getUserAuth } from 'entities/User';
-import { SidebarItemType } from 'widgets/Sidebar/model/types';
+import { SidebarItemType } from '../../model/types';
 import style from './SidebarItem.module.scss';
 
 interface SidebarItemProps {

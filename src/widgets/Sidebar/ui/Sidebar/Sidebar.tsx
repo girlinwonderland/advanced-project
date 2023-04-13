@@ -1,8 +1,6 @@
 import { memo, useCallback, useState } from 'react';
-import {
-    classNames, Button,
-    EButtonTheme, ButtonSize,
-} from 'shared';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Button, EButtonTheme, ButtonSize } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
 import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import { ThemeSwitcher } from '../../../ThemeSwitcher/ui';

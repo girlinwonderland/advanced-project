@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import { classNames, Spinner } from 'shared';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Spinner } from 'shared/ui/Spinner/Spinner';
 import styles from './Loading.module.scss';
 
 interface LoadingProps {

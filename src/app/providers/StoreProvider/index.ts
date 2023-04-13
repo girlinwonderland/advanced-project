@@ -1,2 +1,3 @@
 export { StoreProvider } from './ui/StoreProvider';
-export { StateSchema, ThunkConfig, EErrors } from './config/stateSchema';
+export type { StateSchema, ThunkConfig } from './config/stateSchema';
+export { EErrors } from './consts';
