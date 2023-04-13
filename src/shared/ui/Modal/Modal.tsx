@@ -1,5 +1,5 @@
 import {
-    FC, useCallback, useEffect, useMemo, useRef, useState,
+    FC, ReactNode, useCallback, useEffect, useMemo, useRef, useState,
 } from 'react';
 import { useTheme } from 'app/providers';
 import { classNames, TMode } from '../../lib/classNames';
@@ -11,6 +11,7 @@ interface ModalProps {
     isOpen?: boolean,
     onClose: () => void,
     lazy?: boolean;
+    children?: ReactNode
 }
 
 export const Modal: FC<ModalProps> = ({

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { ReactNode, useMemo, useState } from 'react';
 import {
     ETheme, IContext, ThemeContext, LOCAL_STORAGE_THEME_KEY,
 } from '../lib/ThemeContext';
@@ -6,7 +6,8 @@ import {
 const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as ETheme || ETheme.Light;
 
 interface IThemeProvider {
-    initialTheme?: ETheme
+    initialTheme?: ETheme,
+    children?: ReactNode
 }
 
 export const ThemeProvider: React.FC<IThemeProvider> = ({ children, initialTheme }) => {

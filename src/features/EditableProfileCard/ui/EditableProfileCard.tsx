@@ -22,7 +22,7 @@ import { EditableProfileCardHeader } from './ProfileHeader/ProfileHeader';
 
 interface EditableProfileCardProps {
     className?: string,
-    id: string;
+    id?: string;
 }
 
 const reducers: ReducerList = {

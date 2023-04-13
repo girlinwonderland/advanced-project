@@ -9,13 +9,20 @@ export const ProtectedRoute = ({ children, roles }: { children: JSX.Element, rol
     const location = useLocation();
     const userRoles = useSelector(getUserRoles);
 
-    const noAccess = useMemo(() => {
-        return !!userRoles?.filter((role) => !roles?.includes(role)).length;
+    const hasRequiredRoles = useMemo(() => {
+        if (!roles) {
+            return true;
+        }
+
+        return roles.some((requiredRole) => {
+            const hasRole = userRoles?.includes(requiredRole);
+            return hasRole;
+        });
     }, [roles, userRoles]);
     if (!auth) {
         return <Navigate to={RoutPath.main} state={{ from: location }} replace />;
     }
-    if (noAccess) {
+    if (!hasRequiredRoles) {
         return <Navigate to={RoutPath.forbidden} state={{ from: location }} replace />;
     }
     return children;
