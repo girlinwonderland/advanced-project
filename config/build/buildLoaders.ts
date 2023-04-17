@@ -9,7 +9,7 @@ export const buildLoaders = (isDev: boolean): webpack.RuleSetRule[] => {
     //     exclude: /node_modules/,
     // };
 
-    const svgrLoader = {
+    const svgLoader = {
         test: /\.svg$/,
         use: ['@svgr/webpack'],
     };
@@ -30,7 +30,7 @@ export const buildLoaders = (isDev: boolean): webpack.RuleSetRule[] => {
 
     return [
         fileLoader,
-        svgrLoader,
+        svgLoader,
         codeBabelLoader,
         tsxCodeBabelLoader,
         // tsLoader,

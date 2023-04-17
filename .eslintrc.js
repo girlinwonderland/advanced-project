@@ -42,7 +42,7 @@ module.exports = {
                     'data-testid',
                     'to', 'target', 'justify',
                     'align', 'direction', 'gap',
-                    'role', 'as',
+                    'role', 'as', 'border',
                 ],
             },
         ],
