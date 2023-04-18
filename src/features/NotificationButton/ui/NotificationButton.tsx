@@ -6,6 +6,7 @@ import { BrowserView, MobileView } from 'react-device-detect';
 import { Button, EButtonTheme } from 'shared/ui/Button/Button';
 import { Icon } from 'shared/ui/Icon/Icon';
 import NotificationIcon from 'shared/assets/icons/notification.svg';
+import { AnimationProvider } from 'shared/lib/components/AnimationProvider';
 import { NotificationList } from 'entities/Notification';
 import { Popover } from 'shared/ui/Popups/ui/Popover/Popover';
 import { Drawer } from 'shared/ui/Drawer/Drawer';
@@ -49,9 +50,11 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
             </BrowserView>
             <MobileView>
                 {trigger}
-                <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-                    <NotificationList />
-                </Drawer>
+                <AnimationProvider>
+                    <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+                        <NotificationList />
+                    </Drawer>
+                </AnimationProvider>
             </MobileView>
         </div>
     );
