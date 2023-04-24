@@ -9,7 +9,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { AppLink } from 'shared/ui/AppLink';
 import { Button, EButtonTheme } from 'shared/ui/Button/Button';
 import { useNavigate } from 'react-router-dom';
-import { RoutPath } from 'shared/config/routeConfig';
+import { RoutPath } from 'shared';
 import { ArticleBlockType, ArticleView } from '../../model/consts';
 import styles from './ArticleListItem.module.scss';
 import {

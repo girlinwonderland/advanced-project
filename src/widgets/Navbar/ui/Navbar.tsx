@@ -2,7 +2,6 @@ import React, { useCallback, useState, memo } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Button, EButtonTheme } from 'shared/ui/Button/Button';
-import { RoutPath } from 'shared/config/routeConfig';
 import { AppLink, ELinkTheme } from 'shared/ui/AppLink';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
@@ -11,6 +10,7 @@ import { AvatarDropdown } from 'features/AvatarDropdown';
 import { NotificationButton } from 'features/NotificationButton';
 import { LoginModal } from 'features/AuthByUsername';
 import { getUserAuth } from 'entities/User';
+import { RoutPath } from 'shared';
 import styles from './Navbar.module.scss';
 
 interface NavBarProps {

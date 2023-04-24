@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { useMemo } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { getUserAuth, getUserRoles, UserRole } from 'entities/User';
-import { RoutPath } from 'shared/config/routeConfig';
+import { RoutPath } from 'shared';
 
 export const ProtectedRoute = ({ children, roles }: { children: JSX.Element, roles?: UserRole[]}) => {
     const auth = useSelector(getUserAuth);

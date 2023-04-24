@@ -1,7 +1,8 @@
 import React, { Suspense, useCallback } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { AppRoutesProps, routeConfig } from 'shared/config/routeConfig';
 import { Loading } from 'widgets/Loading/ui/Loading';
+import { routeConfig } from 'app/providers/router';
+import { AppRoutesProps } from 'shared/types';
 import { ProtectedRoute } from './ProtectedRoute';
 
 export const AppRouter = () => {
