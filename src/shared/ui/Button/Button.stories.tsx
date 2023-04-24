@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ETheme } from 'app/providers';
+import { ETheme } from '../../const';
 import { Button, EButtonTheme, ButtonSize } from './Button';
 import { ThemeDecorator } from '../../config/storybook/themeDecorator';
 

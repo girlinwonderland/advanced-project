@@ -1,9 +1,9 @@
 import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, EButtonTheme } from 'shared/ui/Button/Button';
-import { useTheme } from 'app/providers/ThemeProviders/lib/useTheme';
-import { ETheme } from 'app/providers/ThemeProviders/lib/ThemeContext';
-import SwitchIcon from '../../../shared/assets/icons/theme-switcher.svg';
+import { useTheme } from 'shared/lib/hooks/useTheme';
+import { ETheme } from 'shared/const';
+import SwitchIcon from 'shared/assets/icons/theme-switcher.svg';
 // import styles from './ThemeSwitcher.module.scss';
 
 interface ThemeSwitcherProps {

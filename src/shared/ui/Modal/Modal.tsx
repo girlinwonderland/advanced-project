@@ -1,5 +1,5 @@
 import { FC, ReactNode, useMemo } from 'react';
-import { useTheme } from 'app/providers';
+import { useTheme } from 'shared/lib/hooks/useTheme';
 import { classNames, TMode } from '../../lib/classNames';
 import { Portal } from '../Portal/Portal';
 import { useModal } from '../../lib/hooks/useModal';

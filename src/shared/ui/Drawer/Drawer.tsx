@@ -1,7 +1,7 @@
 import React, {
     memo, ReactNode, useCallback, useEffect,
 } from 'react';
-import { useTheme } from 'app/providers/ThemeProviders/lib/useTheme';
+import { useTheme } from '../../lib/hooks/useTheme';
 import { classNames } from '../../lib/classNames/classNames';
 import { useAnimationLibs, AnimationProvider } from '../../lib/components/AnimationProvider';
 import { Overlay } from '../Overlay/Overlay';

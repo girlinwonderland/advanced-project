@@ -1,3 +1,4 @@
-export const Inside: React.FC<{ value: number }> = ({ value }) => {
+type TInside = { value: number }
+export const Inside: React.FC<TInside> = ({ value }: TInside) => {
     return <div>{value}</div>;
 };

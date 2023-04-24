@@ -1,3 +1,3 @@
 export * from './localstorage';
-export { RoutPath } from 'shared/const/router';
-export { EAppRoutes } from 'shared/const/router';
+export { RoutPath, EAppRoutes } from './router';
+export { ETheme } from './theme';

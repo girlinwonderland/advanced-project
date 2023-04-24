@@ -1,5 +1,6 @@
 import { useCallback, useContext } from 'react';
-import { ETheme, LOCAL_STORAGE_THEME_KEY, ThemeContext } from './ThemeContext';
+import { ETheme, LOCAL_STORAGE_THEME_KEY } from '../../const';
+import { ThemeContext } from '../context/ThemeContext';
 
 export const useTheme = () => {
     const { theme, setTheme } = useContext(ThemeContext);
