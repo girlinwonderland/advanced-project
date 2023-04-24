@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/Button/Button';
 import { CounterActions } from '../model/slice/counterSlice';
 import { getCounterValue } from '../model/selectors/getValue';
-import { TextChild } from './test';
-import { TestClass } from './TestClass';
+// import { TextChild } from './test';
+// import { TestClass } from './TestClass';
 
 const SOME_OBJ = {
     name: 'Ivan',
@@ -30,7 +30,7 @@ export const Counter: FC = () => {
             <Button data-testid="increment" onClick={increase}>{t('increase')}</Button>
             <Button data-testid="decrement" onClick={decrease}>{t('decrease')}</Button>
             {/* <TestClass someObj={SOME_OBJ} /> */}
-            <TextChild someObj={SOME_OBJ} />
+            {/* <TextChild someObj={SOME_OBJ} /> */}
         </div>
     );
 };

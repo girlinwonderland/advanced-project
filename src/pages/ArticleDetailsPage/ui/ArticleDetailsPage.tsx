@@ -4,6 +4,7 @@ import { ArticleDetails } from 'entities/Article';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Page } from 'widgets/Page/Page';
 import { VStack } from 'shared/ui/Stack';
+import { ArticleRating } from 'features/ArticleRating';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList';
 import { ArticleDetailsPageReducer } from '../model/slices';
@@ -22,12 +23,17 @@ const reducers: ReducerList = {
 export const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
     const { id } = useParams<{ id: string }>();
 
+    if (!id) {
+        return null;
+    }
+
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page className={classNames(styles.ArticleDetailsPage, {}, [className])}>
                 <VStack gap="16" max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
+                    <ArticleRating articleId={id} />
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments id={id} />
                 </VStack>
