@@ -10,7 +10,7 @@ import { AvatarDropdown } from 'features/AvatarDropdown';
 import { NotificationButton } from 'features/NotificationButton';
 import { LoginModal } from 'features/AuthByUsername';
 import { getUserAuth } from 'entities/User';
-import { RoutPath } from 'shared';
+import { getRouteArticleCreate } from 'shared/const';
 import styles from './Navbar.module.scss';
 
 interface NavBarProps {
@@ -37,7 +37,7 @@ export const Navbar = memo(({ className }: NavBarProps) => {
                     theme={TextTheme.Inverted}
                 />
                 <AppLink
-                    to={RoutPath.article_create}
+                    to={getRouteArticleCreate()}
                     theme={ELinkTheme.Secondary}
                     className={styles.createBtn}
                 >

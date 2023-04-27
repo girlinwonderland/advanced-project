@@ -10,16 +10,12 @@ export enum EAppRoutes {
     Forbidden = 'forbidden',
     NotFound = 'notFound'
 }
-
-export const RoutPath: Record<EAppRoutes, string> = {
-    [EAppRoutes.Main]: '/',
-    [EAppRoutes.About]: '/about',
-    [EAppRoutes.Profile]: '/profile/',
-    [EAppRoutes.Articles]: '/articles',
-    [EAppRoutes.Articles_Details]: '/articles/',
-    [EAppRoutes.Article_Create]: '/articles/new',
-    [EAppRoutes.Article_Edit]: '/articles/:id/edit',
-    [EAppRoutes.Admin_Panel]: '/admin',
-    [EAppRoutes.Forbidden]: '/forbidden',
-    [EAppRoutes.NotFound]: '*',
-};
+export const getRouteMain = () => '/';
+export const getRouteAbout = () => '/about';
+export const getRouteProfile = (id: string) => `/profile/${id}`;
+export const getRouteArticles = () => '/articles';
+export const getRouteArticleDetails = (id: string) => `/articles/${id}`;
+export const getRouteArticleCreate = () => '/articles/new';
+export const getRouteArticleEdit = (id: string) => `/articles/${id}/edit`;
+export const getRouteAdmin = () => '/admin';
+export const getRouteForbidden = () => '/forbidden';

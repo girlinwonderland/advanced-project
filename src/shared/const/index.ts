@@ -1,3 +1,3 @@
 export * from './localstorage';
-export { RoutPath, EAppRoutes } from './router';
+export * from './router';
 export { ETheme } from './theme';

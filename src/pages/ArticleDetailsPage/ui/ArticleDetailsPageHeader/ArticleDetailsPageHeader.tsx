@@ -6,7 +6,7 @@ import { Button, EButtonTheme } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
 import { getArticleDetailsData } from 'entities/Article';
 import { HStack } from 'shared/ui/Stack';
-import { RoutPath } from 'shared';
+import { getRouteArticleEdit, getRouteArticles } from 'shared/const';
 import { getCanEditArticle } from '../../model/selectors';
 
 interface ArticleDetailsPageHeaderProps {
@@ -21,12 +21,14 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
     const article = useSelector(getArticleDetailsData);
 
     const onBackToList = useCallback(() => {
-        navigate(RoutPath.articles);
+        navigate(getRouteArticles());
     }, [navigate]);
 
     const onEditArticle = useCallback(() => {
-        navigate(`${RoutPath.article_details}${article?.id}/edit`);
-    }, [article?.id, navigate]);
+        if (article) {
+            navigate(getRouteArticleEdit(article.id));
+        }
+    }, [article, navigate]);
 
     return (
         <HStack max justify="between" className={classNames('', {}, [className])}>

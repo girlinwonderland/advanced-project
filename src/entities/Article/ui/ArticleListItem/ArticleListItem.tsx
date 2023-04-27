@@ -9,7 +9,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { AppLink } from 'shared/ui/AppLink';
 import { Button, EButtonTheme } from 'shared/ui/Button/Button';
 import { useNavigate } from 'react-router-dom';
-import { RoutPath } from 'shared';
+import { getRouteArticleDetails } from 'shared/const';
 import { ArticleBlockType, ArticleView } from '../../model/consts';
 import styles from './ArticleListItem.module.scss';
 import {
@@ -30,10 +30,6 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     } = props;
     const { t } = useTranslation();
     const navigate = useNavigate();
-
-    const onOpenArticle = useCallback(() => {
-        navigate(RoutPath.article_details + article.id);
-    }, [article.id, navigate]);
 
     const types = <Text text={article.type.join(', ')} className={styles.types} />;
     const views = (
@@ -63,8 +59,8 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         <ArticleTextBlockComponent block={textBlock} className={styles.textBlock} />
                     )}
                     <div className={styles.footer}>
-                        <AppLink target={target} to={RoutPath.article_details + article.id}>
-                            <Button onClick={onOpenArticle} theme={EButtonTheme.OutLine}>
+                        <AppLink target={target} to={getRouteArticleDetails(article.id)}>
+                            <Button theme={EButtonTheme.OutLine}>
                                 {t('Читать далее...')}
                             </Button>
                         </AppLink>
@@ -78,10 +74,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     return (
         <AppLink
             target={target}
-            to={RoutPath.article_details + article.id}
+            to={getRouteArticleDetails(article.id)}
             className={classNames(styles.ArticleListItem, {}, [className, styles[view]])}
         >
-            <Card className={styles.card} onClick={onOpenArticle}>
+            <Card className={styles.card}>
                 <div className={styles.imageWrapper}>
                     <img alt={article.title} src={article.img} className={styles.img} />
                     <Text text={article.createdAt} className={styles.date} />

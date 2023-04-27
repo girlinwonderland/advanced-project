@@ -8,7 +8,7 @@ import {
     getUserAuth, UserActions, isUserAdmin, isUserManager,
 } from 'entities/User';
 import styles from 'widgets/Navbar/ui/Navbar.module.scss';
-import { RoutPath } from 'shared';
+import { getRouteAdmin, getRouteProfile } from 'shared';
 
 interface AvatarDropdownProps {
     className?: string;
@@ -35,13 +35,13 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
         if (authData) {
             items.push({
                 content: t('profile'),
-                href: RoutPath.profile + authData.id,
+                href: getRouteProfile(authData.id),
             });
         }
         if (isAdmin || isManager) {
             items.push({
                 content: t('admin'),
-                href: RoutPath.admin_panel,
+                href: getRouteAdmin(),
             });
         }
         return items;
