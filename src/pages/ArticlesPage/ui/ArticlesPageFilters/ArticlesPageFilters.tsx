@@ -7,11 +7,10 @@ import { useDebounce } from 'shared/lib/hooks/useDebounce';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
 import { SortOrder } from 'shared/types';
-import {
-    ArticleViewSelector, ArticleSortSelector,
-    ArticleTypeTabs, ArticleSortField,
-    ArticleType, ArticleView,
-} from 'entities/Article';
+import { ArticleSortField, ArticleType, ArticleView } from 'entities/Article';
+import { ArticleTypeTabs } from 'features/ArticleTypeTabs';
+import { ArticleViewSelector } from 'features/ArticleViewSelector';
+import { ArticleSortSelector } from 'features/ArticleSortSelector';
 import { fetchArticles } from '../../model/services/fetchArticlesList';
 import {
     getArticlesPageOrder, getArticlesPageSearch,

@@ -21,6 +21,6 @@ export const buildWebpackConfig = ({
         clean: true,
         publicPath: '/',
     },
-    devtool: isDev ? 'inline-source-map' : undefined,
+    devtool: isDev ? 'eval-cheap-module-source-map' : undefined,
     devServer: isDev ? buildDevServer(port) : undefined,
 });
