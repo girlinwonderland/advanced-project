@@ -7,6 +7,8 @@ import EyeIcon from 'shared/assets/icons/eye.svg';
 import { Card } from 'shared/ui/Card/Card';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { AppLink } from 'shared/ui/AppLink';
+import { AppImage } from 'shared/ui/AppImage';
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Button, EButtonTheme } from 'shared/ui/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { getRouteArticleDetails } from 'shared/const';
@@ -54,7 +56,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     </div>
                     <Text title={article.title} className={styles.title} />
                     {types}
-                    <img src={article.img} className={styles.img} alt={article.title} />
+                    <AppImage
+                        fallback={<Skeleton width="100%" height={250} />}
+                        src={article.img}
+                        className={styles.img}
+                        alt={article.title}
+                    />
                     {textBlock && (
                         <ArticleTextBlockComponent block={textBlock} className={styles.textBlock} />
                     )}
@@ -79,7 +86,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         >
             <Card className={styles.card}>
                 <div className={styles.imageWrapper}>
-                    <img alt={article.title} src={article.img} className={styles.img} />
+                    <AppImage
+                        fallback={<Skeleton width={200} height={200} />}
+                        alt={article.title}
+                        src={article.img}
+                        className={styles.img}
+                    />
                     <Text text={article.createdAt} className={styles.date} />
                 </div>
                 <div className={styles.infoWrapper}>

@@ -7,12 +7,13 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll';
 import { useAppDispatch } from 'shared/lib/hooks/useDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInit';
+import { TestProps } from 'shared/types/tests';
 import { useLocation } from 'react-router-dom';
 import { getScrollByPath, ScrollActions } from 'features/SaveScroll';
 import { useThrottle } from 'shared/lib/hooks/useThrottle';
 import styles from './Page.module.scss';
 
-interface PageProps {
+interface PageProps extends TestProps {
     className?: string;
     children: ReactNode;
     onScrollEnd?: () => void;
@@ -48,6 +49,7 @@ export const Page = memo((props: PageProps) => {
             className={classNames(styles.Page, {}, [className])}
             onScroll={onScroll}
             id={PAGE_ID}
+            data-testid={props['data-testid'] ?? 'Page'}
         >
             {children}
             {onScrollEnd ? <div className={styles.trigger} ref={triggerRef} /> : null}
